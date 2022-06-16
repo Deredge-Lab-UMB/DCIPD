@@ -1,5 +1,5 @@
 # Decision-Graph-Automation
-code that uses kneedle algorithim, and various backend techniques to automate the detection of a gamma value within a L-Curve
+Code that uses kneedle algorithim, and various backend techniques to automate the detection of a gamma value within a L-Curve
 
 The script kneedle.py is the full exploration of the reweighted gamma values from coefficients 0.1 to 0.9. To use this script, a user simply needs to type in the file path for the reweighted .dat files (Replacing the coefficeint with {j} and the exponent with {i} like: protein_name_{j}x10^{i}_work.dat) in the function filepath(), specifically where the filepath can be seen currently. In a similiar fashion, the user changes the desired protein name in the name function. This is used for graphs and output file naming.
 
