@@ -18,7 +18,7 @@ def filepath():
 name=("ENDOS2_A") #Set Name to be used in graph title, file naming, ect
 
 
-optnum = 2 #What optomization number are you on, change with each run
+optnum = 1 #What optomization number are you on, change with each run
 first_j_values = [1, 4, 7] #start with 1, 4, 7
 first_i_value = -1
 second_j_values = [1, 4, 7] #start with 1, 4, 7
@@ -132,7 +132,7 @@ for i in np.arange(first_i_value , (second_i_value+1)):
                         coeff2_2 = 10*(df['gamma'][gam])-2
                         New_Gamma_neg1.append(coeff2)
                         New_Gamma_neg1.append(coeff2_2)
-                print("New Coefficients for e^-1: " + str(New_Gamma_neg1))
+                print("New Coefficients for i = -1: " + str(New_Gamma_neg1))
                 if df['gamma'][gam] > 1.0 :
                     if gam < r['gamma'].index.values:
                         coeff3 = (df['gamma'][gam])+1
@@ -144,7 +144,7 @@ for i in np.arange(first_i_value , (second_i_value+1)):
                         coeff4_2 = (df['gamma'][gam])-2
                         New_Gamma_0.append(coeff4)
                         New_Gamma_0.append(coeff4_2)
-                print("New Coefficients for e^0: " + str(New_Gamma_0))
+                print("New Coefficients for i = 0: " + str(New_Gamma_0))
 
-
-print(df['gamma'])
+print("List of All Gamma Values:\n" + df['gamma'].to_string(index=False))
+print (gvalue)
