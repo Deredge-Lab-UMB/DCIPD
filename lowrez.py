@@ -58,7 +58,7 @@ for i in np.arange(first_i_value , (second_i_value+1)):
                 df1 = pd.read_csv(work, comment='#', header=None, sep='\s+')
                 df2.append(df1)
                 df = pd.concat(df2, axis=0, ignore_index=True)
-                df.columns = ['gamma', 'MSE', 'work']
+                df.columns = ['gamma', 'MSE', 'RMSE', 'work']
                 kneed_x = df['MSE'].values.tolist()#converting the MSE column of the pandas data frame into a list value to be imported into kneedle
                 kneed_y = df['work'].values.tolist()#conerting the work column of the pandas data frame into a list value to be imported into kneedle
             except FileNotFoundError:
@@ -71,7 +71,7 @@ for i in np.arange(first_i_value , (second_i_value+1)):
                 df3 = pd.read_csv(work, comment='#', header=None, sep='\s+')#reading in the value as listed above
                 df2.append(df3)
                 df = pd.concat(df2, axis=0, ignore_index=True)
-                df.columns = ['gamma', 'MSE', 'work']
+                df.columns = ['gamma', 'MSE', 'RMSE',  'work']
                 kneed_x = df['MSE'].values.tolist()#converting the MSE column of the pandas data frame into a list value to be imported into kneedle
                 kneed_y = df['work'].values.tolist()#conerting the work column of the pandas data frame into a list value to be imported into kneedle
             except FileNotFoundError:
