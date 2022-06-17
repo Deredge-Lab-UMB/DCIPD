@@ -57,7 +57,7 @@ for i in np.arange(-1, 1): # Select the range of gamma (i in j*10^i)
                 df = pd.read_csv(work, comment='#', header=None, sep='\s+')#reading in the value as listed above
                 li.append(df) #appending the data frame
                 df = pd.concat(li, axis=0, ignore_index=True) #turning the data frame into a concrete value table
-                df.columns = ['gamma', 'MSE', 'work'] #naming the columns in the data frame as ordered/formated in the .dat files read above
+                df.columns = ['gamma', 'MSE', 'RMSE', 'work'] #naming the columns in the data frame as ordered/formated in the .dat files read above
                 kneed_x = df['MSE'].values.tolist()#converting the MSE column of the pandas data frame into a list value to be imported into kneedle
                 kneed_y = df['work'].values.tolist()#conerting the work column of the pandas data frame into a list value to be imported into kneedle
             except FileNotFoundError:
