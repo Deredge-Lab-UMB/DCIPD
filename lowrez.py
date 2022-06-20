@@ -116,35 +116,86 @@ for i in np.arange(first_i_value , (second_i_value+1)):
             idx = np.argmin(test)
             idx = np.where(df["gamma"][idx] > r, idx-1, idx+1)
             gamma_list1 = list(idx[0])
-            gamma_list =gamma_list1[1:]
+            gamma_list =gamma_list1[0:-1]
+            New_Gamma_neg1 = []
+            New_Gamma_0 = []            
 
             for gam in gamma_list:
-                New_Gamma_neg1 = []
-                New_Gamma_0 = []
                 if df['gamma'][gam] < 1.0:
                     if gam < r['gamma'].index.values:
                         coeff1 = 10*(df['gamma'][gam])+1
                         coeff1_2= 10*(df['gamma'][gam])+2
-                        New_Gamma_neg1.append(coeff1)
-                        New_Gamma_neg1.append(coeff1_2)
+                        if (coeff1 in first_j_values or coeff1 in New_Gamma_neg1 or coeff1 >9 or coeff1 <1):
+                            pass
+                        else:
+                            New_Gamma_neg1.append(coeff1)
+                        if (coeff1_2 in first_j_values or coeff1_2 in New_Gamma_neg1 or coeff1_2 >9 or coeff1_2 <1):
+                            pass
+                        else:
+                            New_Gamma_neg1.append(coeff1_2)
                     if gam > r['gamma'].index.values:
                         coeff2 = 10*(df['gamma'][gam])-1
                         coeff2_2 = 10*(df['gamma'][gam])-2
-                        New_Gamma_neg1.append(coeff2)
-                        New_Gamma_neg1.append(coeff2_2)
-                print("New Coefficients for i = -1: " + str(New_Gamma_neg1))
-                if df['gamma'][gam] > 1.0 :
+                        if (coeff2 in first_j_values or coeff2 in New_Gamma_neg1 or coeff2 >9 or coeff2 <1):
+                            pass
+                        else:
+                            New_Gamma_neg1.append(coeff2)
+                        if (coeff2_2 in first_j_values or coeff2_2 in New_Gamma_neg1 or coeff2_2 >9 or coeff2_2 <1):
+                            pass
+                        else:
+                            New_Gamma_neg1.append(coeff2_2)
+                if df['gamma'][gam] > 1.0:
                     if gam < r['gamma'].index.values:
                         coeff3 = (df['gamma'][gam])+1
-                        coeff3_2= (df['gamma'][gam])+2
-                        New_Gamma_0.append(coeff3)
-                        New_Gamma_0.append(coeff3_2)
+                        coeff3_2 = (df['gamma'][gam])+2
+                        if (coeff3 in second_j_values or coeff3 in New_Gamma_0 or coeff3 >9 or coeff3 <1):
+                            pass
+                        else:
+                            New_Gamma_0.append(coeff3)
+                        if (coeff3_2 in second_j_values or coeff3_2 in New_Gamma_0 or coeff3_2 >9 or coeff3_2 <1):
+                            pass
+                        else:
+                            New_Gamma_0.append(coeff3_2)
                     if gam > r['gamma'].index.values:
                         coeff4 = (df['gamma'][gam])-1
                         coeff4_2 = (df['gamma'][gam])-2
-                        New_Gamma_0.append(coeff4)
-                        New_Gamma_0.append(coeff4_2)
-                print("New Coefficients for i = 0: " + str(New_Gamma_0))
+                        if (coeff4 in second_j_values or coeff4 in New_Gamma_0 or coeff4 >9 or coeff4 <1):
+                            pass
+                        else:
+                            New_Gamma_0.append(coeff4)
+                        if (coeff4_2 in second_j_values or coeff4_2 in New_Gamma_0 or coeff4_2 >9 or coeff4_2 <1):
+                            pass
+                        else:
+                            New_Gamma_0.append(coeff4_2)
+                if df['gamma'][gam] == 1.0:
+                    if gam < r['gamma'].index.values:
+                        coeff5 = (df['gamma'][gam])+1
+                        coeff5_2 = (df['gamma'][gam])+2
+                        if (coeff5 in second_j_values or coeff5 in New_Gamma_0 or coeff5 >9 or coeff5 <1):
+                            pass
+                        else:
+                            New_Gamma_0.append(coeff5)
+                        if (coeff5_2 in second_j_values or coeff5_2 in New_Gamma_0 or coeff5_2 >9 or coeff5_2 <1):
+                            pass
+                        else:
+                            New_Gamma_0.append(coeff5_2)
+                    if gam > r['gamma'].index.values:
+                        coeff6 = 10*(df['gamma'][gam])-1
+                        coeff6_2 = 10*(df['gamma'][gam])-2
+                        if (coeff6 in first_j_values or coeff6 in New_Gamma_neg1 or coeff6 >9 or coeff6 <1):
+                            pass
+                        else:
+                            New_Gamma_neg1.append(coeff6)
+                        if (coeff6_2 in first_j_values or coeff6_2 in New_Gamma_neg1 or coeff6_2 >9 or coeff6_2 <1):
+                            pass
+                        else:
+                            New_Gamma_neg1.append(coeff6_2)
 
-print("List of All Gamma Values:\n" + df['gamma'].to_string(index=False))
+
+if len(New_Gamma_neg1) or len(New_Gamma_0):
+    print("New Coefficients for i = -1: " + str(New_Gamma_neg1))
+    print("New Coefficients for i = 0: " + str(New_Gamma_0))
+    print("List of All Gamma Values:\n" + df['gamma'].to_string(index=False))
+else:
+    print("Optomization Complete")
 print (gvalue)
