@@ -73,6 +73,7 @@ def kneed_plot():
     plt.plot(gamma_graph.x, gamma_graph.y,'-o', linewidth=2.5)
     plt.annotate([gvalue], (knee_x, knee_y))
     plt.xlim([gamma_graph.x[-1],gamma_graph.x[0]])
+    plt.ticklabel_format(useOffset=False)
     colors = ["r"]
     for n,t,p in zip(
         [knee_x], ["black"], ["Knee"]):
