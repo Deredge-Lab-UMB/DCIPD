@@ -207,6 +207,8 @@ for optnum in range(4):
             second_j_values = second_j_values_1 + New_Gamma_0_List
             second_j_values.sort()
             optnum += 1
+            print("New Coefficients for i = -1: " + str(New_Gamma_neg1))
+            print("New Coefficients for i = 0: " + str(New_Gamma_0))    
         else:
             print("Optomization Complete")
             print (gvalue)
